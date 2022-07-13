@@ -1,19 +1,22 @@
 import './App.css';
+import { useState } from 'react';
 import { Grid, Button } from '@mui/material';
 
 const App = () => {
-  let showpic = false;
+
+  const [toggle, setToggle] = useState(false);
   function togglePic(){
-    console.log("iamhere"); 
-    showpic = !showpic; 
-    console.log(showpic); 
-  } 
+    setToggle(!toggle); 
+  }
+
   return (
     <Grid className="App">
+
       <header className="App-header">
-        {/* {showpic ? <img src={"unknown.png"} alt="hi"></img>: null} */}
-        {showpic ? (<p>hello</p>): null}
-        <Button onClick={togglePic}>enormous</Button>
+      {toggle ? (<img src={"unknown.png"} alt="hi"></img>): null}        
+
+      <Button onClick={togglePic}>enormous</Button>
+      
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
